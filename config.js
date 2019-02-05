@@ -3,8 +3,8 @@ var config =
     "httpPort": 8000,
     
     // Values for connecting to zOS FTP
-    "ftpHost": "localhost",
-    "ftpPort": "2121",
+    "ftpHost": "zos.kctr.marist.edu",
+    "ftpPort": "21",
     
 	"resTimeout": 5,
 	

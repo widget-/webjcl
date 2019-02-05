@@ -251,11 +251,11 @@ JESWorker.prototype._destroyWorkspace = function()
 		// For each file, delete it.
 		for (i in files)
 		{
-			fs.unlink(self._workspace + '/' + files[i]);
+			fs.unlink(self._workspace + '/' + files[i], function(){});
 		}
 		
 		// Remove directory
-		fs.rmdir(self._workspace);
+		fs.rmdir(self._workspace, function(){});
 		
 	});
 	
@@ -323,7 +323,7 @@ JESWorker.prototype.start = function(callback)
 	console.log(this._configFile + this._jclFilePath + this._workspace);
 	
 	// Invoke JESftp.py with python
-	var	python = spawn('python', [JESftp_py, 
+	var	python = spawn('python2', [JESftp_py, 
 	                              '--config', this._configFile,
 	                              this._jclFilePath],
 	                               {cwd: this._workspace});

@@ -139,7 +139,7 @@ class JESftp:
       with open(outfile, 'wb') as outputFile:   
          # This lambda is a hack to make sure a newline character is written at the end of each line.
          # I imagine this may be a problem if using an editor that doesn't use \n
-         self.ftp.retrlines("RETR "+JOBID+".x", lambda line: outputFile.write(line + self._newline))
+         self.ftp.retrlines("RETR "+JOBID, lambda line: outputFile.write(line + self._newline))
          
       
       
@@ -276,7 +276,7 @@ class JESftp:
             time.sleep(5)
       
       # Delete the job
-      self.deleteJob(JOBID)
+      # self.deleteJob(JOBID)
       print "Deleted " + JOBID
       
       
